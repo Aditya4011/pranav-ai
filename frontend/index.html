@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#174ea6" />
+  <title>Pranav — Government Scheme & Finance Navigator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3HYMf7Z2a3tK3oWl1W1hR7k2e0c0=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+  <header class="topbar">
+    <div class="container nav-wrap">
+      <button class="brand" data-nav="home" aria-label="Pranav Finance home">
+        <span class="brand-mark" aria-hidden="true">P</span>
+        <span><strong>Pranav</strong><small>Government Scheme & Finance Navigator</small></span>
+      </button>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <button data-nav="home">Home</button><button data-nav="schemes">Schemes</button>
+        <button data-nav="calculator">Calculator</button>
+        <button data-nav="partners">Partners</button>
+        <button data-nav="dashboard">My Dashboard</button><button data-nav="auth" id="authNav">Login / Sign up</button>
+      </nav>
+      <div class="nav-actions">
+        <label class="sr-only" for="globalLanguage">Language</label>
+        <select id="globalLanguage" class="language-select" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="mr">मराठी</option>
+          <option value="bn">বাংলা</option><option value="te">తెలుగు</option><option value="ta">தமிழ்</option>
+          <option value="gu">ગુજરાતી</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option>
+          <option value="pa">ਪੰਜਾਬੀ</option><option value="or">ଓଡ଼ିଆ</option><option value="as">অসমীয়া</option>
+        </select>
+        <button class="icon-btn mobile-menu" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <button data-nav="schemes">Schemes</button><button data-nav="calculator">Calculator</button><button data-nav="partners">Partners</button><button data-nav="dashboard">My Dashboard</button><button data-nav="auth">Login / Sign up</button><button data-nav="admin">Admin</button>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <button id="chatToggle" class="chat-fab" aria-label="Open multilingual assistant">✦ <span>Ask Pranav AI</span></button>
+  <aside id="chatPanel" class="chat-panel" aria-label="AI assistant" aria-hidden="true">
+    <div class="chat-head"><div><strong>Pranav AI Assistant</strong><small>Advanced AI · scheme-aware guidance</small></div><button id="chatClose" class="icon-btn" aria-label="Close assistant">×</button></div>
+    <div class="chat-body" id="chatBody">
+      <div class="bubble bot">Namaste! Tell me what you need in simple words — for example, “I want ₹1 lakh to start a dairy business.”</div>
+    </div>
+    <div class="chat-suggestions">
+      <button data-chat="I want ₹1 lakh to start a dairy business.">Dairy loan ₹1 lakh</button>
+      <button data-chat="मुझे छोटा व्यवसाय शुरू करने के लिए लोन चाहिए।">हिन्दी में पूछें</button>
+    </div>
+    <form id="chatForm" class="chat-input-row">
+      <button id="voiceInputBtn" class="voice-btn" type="button" aria-label="Speak to Pranav AI" title="Speak to Pranav AI">🎙️</button><button id="voiceOutputBtn" class="voice-btn" type="button" aria-label="Read Pranav AI response aloud" title="Read AI response aloud">🔊</button>
+      <input id="chatInput" aria-label="Message" placeholder="Type your question… or use the microphone" autocomplete="off" />
+      <button class="btn primary compact" type="submit">Send</button>
+    </form>
+    <div class="voice-controls">
+      <label for="voiceLanguage">🎧 AI voice language</label>
+      <select id="voiceLanguage" aria-label="Choose AI voice language">
+        <option value="en">English</option><option value="hi">हिन्दी</option><option value="mr">मराठी</option><option value="bn">বাংলা</option><option value="te">తెలుగు</option><option value="ta">தமிழ்</option><option value="gu">ગુજરાતી</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="pa">ਪੰਜਾਬੀ</option><option value="or">ଓଡ଼ିଆ</option><option value="as">অসমীয়া</option>
+      </select>
+    </div>
+    <div class="voice-status" id="voiceStatus" aria-live="polite">Voice ready · 🎙️ Speak to Pranav · 🔊 Hear the latest answer</div>
+    <p class="tiny-note">AI answers are advisory. Voice uses your browser speech features; live AI requires OPENAI_API_KEY on the backend.</p>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
